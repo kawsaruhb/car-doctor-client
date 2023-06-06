@@ -1,11 +1,12 @@
 import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 AOS.init();
 
 const ServiceCard = ({ service }) => {
 
-    const { title, img, price } = service;
+    const { _id, title, img, price } = service;
 
     return (
         <div data-aos="flip-left">
@@ -17,7 +18,9 @@ const ServiceCard = ({ service }) => {
                     <h2 className="card-title">{title}</h2>
                     <p className='font-semibold text-[#FF3811]'>Price: ${price}</p>
                     <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <Link to={`/checkout/${_id}`}>
+                            <button className="btn btn-primary">Book Now</button>
+                        </Link>
                     </div>
                 </div>
             </div>
